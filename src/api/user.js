@@ -1,24 +1,33 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function userList(query) {
   return request({
-    url: '/user/login',
+    url: '/user/list',
+    method: 'post',
+    data: query
+  })
+}
+
+export function addUser(data) {
+  return request({
+    url: '/user/create',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function updateUser(data) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/user/update',
+    method: 'post',
+    data
   })
 }
 
-export function logout() {
+export function deleteUser(id) {
   return request({
-    url: '/user/logout',
-    method: 'post'
+    url: '/user/delete',
+    method: 'post',
+    params: { id }
   })
 }
