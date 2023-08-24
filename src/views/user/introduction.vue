@@ -5,12 +5,12 @@
         <i class="el-icon-user" />
         <span>个人简介</span>
       </div>
-      <div class="text item">
-        <div class="animated-text"><span>{{ dynamicText }}</span></div>
+      <div class="text-item">
+        <div class="animated-text"><element class="dynamic-text">{{ dynamicText }}</element></div>
       </div>
       <div class="twopeople">
         <div class="container" style="height:200px;">
-          <canvas ref="canvas" class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"/>
+          <canvas ref="canvas" class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;" />
         </div>
       </div>
       <div class="cta-button">
@@ -27,7 +27,7 @@ export default {
       cardStyle: {
         animation: 'fadeInUp 1s ease both'
       },
-      dynamicText: '本人是一个学习Java的小菜鸟，同时擅长前端和后端开发...'
+      dynamicText: '博尔赫斯在《小径分岔的花园》里所写，他认为时间没有同一性和绝对性，他认为时间有无数系列，背离的、汇合的和平行的时间织成一张不断增长、错综复杂的网。由相互靠拢、分歧、交错或者永远互不干扰的时间织成的网络包含了所有的可能性。在大部分时间里，我们并不存在；在某些时间，有你没有我；在另一些时间，有我而没有你；再有一些时间，你我都存在。目前这个时刻，偶然的机会使你光临破站；在另一个时刻，你阅读此篇介绍，发现我已死去；再在另一个时刻，我说着目前所说的话，不过我是个错误，是个幽灵。'
     }
   },
   mounted() {
@@ -90,7 +90,10 @@ export default {
 }
 
 .animated-text {
-  font-size: 18px;
+  font-size: 1rem;
+  font-family: Optima-Regular, Optima, PingFang SC, Microsoft YaHei, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
   color: #080808;
   opacity: 0.7;
   animation: textAnimation 4s infinite alternate;
