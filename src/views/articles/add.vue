@@ -381,6 +381,7 @@ export default {
             type: 'success',
             message: '保存草稿成功!'
           })
+          this.$router.push('/articles/list')
         } else {
           this.$message({
             type: 'error',
@@ -421,14 +422,15 @@ export default {
             type: 'success',
             message: '文章发表成功!'
           })
+          this.$router.push('/articles/list')
         } else {
           this.$message({
             type: 'error',
             message: '文章发表失败!'
           })
         }
+        this.showDialog = false
       })
-      this.showDialog = false
     }
 
   }
