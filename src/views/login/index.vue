@@ -2,54 +2,40 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-
-      <div class="title-container">
-        <h3 class="title">个 人 博 客 管 理 系 统</h3>
-      </div>
-
+      <h3 class="title">个 人 博 客 管 理 系 统</h3>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
-        <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="账号"
-          name="username"
-          type="text"
-          tabindex="1"
-          auto-complete="on"
-        />
+        <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="账号" />
       </el-form-item>
-
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon-class="password" />
         </span>
         <el-input
-          :key="passwordType"
-          ref="password"
           v-model="loginForm.password"
-          :type="passwordType"
-          placeholder="密码"
+          :type="pwdType"
           name="password"
-          tabindex="2"
           auto-complete="on"
+          placeholder="密码"
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+          <svg-icon :icon-class="pwdType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
-
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
-
+      <el-form-item>
+        <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
+          登录
+        </el-button>
+      </el-form-item>
       <div class="tips">
         <span style="margin-right:20px;">username: admin</span>
         <span> password: 123456</span>
       </div>
-
     </el-form>
+
   </div>
 </template>
 
@@ -97,14 +83,11 @@ export default {
   },
   methods: {
     showPwd() {
-      if (this.passwordType === 'password') {
-        this.passwordType = ''
+      if (this.pwdType === 'password') {
+        this.pwdType = ''
       } else {
-        this.passwordType = 'password'
+        this.pwdType = 'password'
       }
-      this.$nextTick(() => {
-        this.$refs.password.focus()
-      })
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
@@ -114,6 +97,10 @@ export default {
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
+            this.$notify.error({
+              title: '登录失败',
+              message: '请输入正确的用户名或密码！'
+            })
             this.loading = false
           })
         } else {
@@ -152,19 +139,22 @@ $cursor: #fff;
     width: 85%;
 
     input {
-      background: transparent;
+      background: transparent; /* Set the background to transparent */
       border: 0px;
-      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      // color: $light_gray;
       height: 47px;
       caret-color: $cursor;
-
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
+        box-shadow: 0 0 0px 1000px transparent inset !important;
         -webkit-text-fill-color: $cursor !important;
       }
+    }
+
+    /* Apply a transparent background when input is focused */
+    &:focus-within input {
+      background: rgba(255, 255, 255, 0.05); /* Adjust the alpha value as needed */
     }
   }
 
@@ -175,40 +165,40 @@ $cursor: #fff;
     color: #454545;
   }
 }
+
 </style>
 
-<style lang="scss" scoped>
-$bg:#2d3a4b;
+<style rel="stylesheet/scss" lang="scss" scoped>
+$bg:#889aa4;
 $dark_gray:#889aa4;
 $light_gray:#eee;
-
 .login-container {
-  min-height: 100%;
+  position: fixed;
+  height: 100%;
   width: 100%;
-  background-color: $bg;
-  overflow: hidden;
-
+  background:url("../../assets/login_images/ppi.jpg");
+  position:fixed;
+  background-size:100% 100%;
+  // background-image: "../../assets/bg.jpg";
   .login-form {
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
+    padding: 35px 35px 15px 35px;
+    margin: 120px auto;
   }
-
   .tips {
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;
-
     span {
       &:first-of-type {
         margin-right: 16px;
       }
     }
   }
-
   .svg-container {
     padding: 6px 5px 6px 15px;
     color: $dark_gray;
@@ -216,19 +206,13 @@ $light_gray:#eee;
     width: 30px;
     display: inline-block;
   }
-
-  .title-container {
-    position: relative;
-
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
-    }
+  .title {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0px auto 40px auto;
+    text-align: center;
+    font-weight: bold;
   }
-
   .show-pwd {
     position: absolute;
     right: 10px;
@@ -238,5 +222,6 @@ $light_gray:#eee;
     cursor: pointer;
     user-select: none;
   }
+
 }
 </style>
