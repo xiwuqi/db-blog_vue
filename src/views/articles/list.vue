@@ -89,7 +89,6 @@
           <el-image
             style="width: 100px; height: 100px"
             :src="scope.row.imageUrl"
-            :fit="contain"
             :preview-src-list="[scope.row.imageUrl]"
           />
         </template>
