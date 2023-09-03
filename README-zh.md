@@ -65,7 +65,7 @@ npm run lint -- --fix
 
 ## Demo
 
-<video src="https://github.com/xiwuqi/db-blog_vue/blob/main/demo.gif"></video>
+![download](https://github.com/xiwuqi/db-blog_vue/blob/main/demo.gif)
 
 ## Browsers support
 
