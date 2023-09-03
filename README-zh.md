@@ -65,7 +65,7 @@ npm run lint -- --fix
 
 ## Demo
 
-<video src="/Users/wuxi/Desktop/屏幕录制2023-09-03 21.57.00.mov"></video>
+<video src="https://github.com/xiwuqi/db-blog_vue/blob/main/demo.gif"></video>
 
 ## Browsers support
 

@@ -55,7 +55,7 @@ Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/gui
 
 ## Demo
 
-<video src="https://github.com/xiwuqi/db-blog_vue/blob/main/demo.mov"></video>
+<video src="https://github.com/xiwuqi/db-blog_vue/blob/main/demo.gif"></video>
 
 ## Related Project
 
