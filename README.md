@@ -55,7 +55,7 @@ Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/gui
 
 ## Demo
 
-<video src="/Users/wuxi/Desktop/屏幕录制2023-09-03 21.57.00.mov"></video>
+<video src="https://github.com/xiwuqi/db-blog_vue/blob/main/demo.mov"></video>
 
 ## Related Project
 
