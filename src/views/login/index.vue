@@ -207,6 +207,14 @@ $light_gray:#eee;
     display: inline-block;
   }
   .title {
+    /* 要把阴影与大小配合好，一般来说大小都是偏大时采用 */
+      font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+      text-transform: uppercase;/* 全开大写 */
+      // font-size: 92px;
+      color: #ec8824;
+      text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+      letter-spacing: -4px;
+      // background: linear-gradient(to bottom, #ece4d9 0%,#e9dfd1 100%);
     font-size: 26px;
     font-weight: 400;
     margin: 0px auto 40px auto;
