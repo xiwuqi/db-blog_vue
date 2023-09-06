@@ -50,7 +50,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="操作系统">
+      <el-table-column align="center" label="登录日期">
         <template slot-scope="scope">
           <span>{{ scope.row.createTime }}</span>
         </template>
